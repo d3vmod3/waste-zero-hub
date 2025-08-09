@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+@plugin "daisyui/theme" {
+  name: "wireframe";
+  --color-primary: #6b7451;
+  --color-secondary: #ffffff;
+  --color-accent: #2e3a59;
+  --color-neutral: #f5f6f8;
+}
+html {
+  scroll-behavior: smooth;
+}
+.btn-no-bg-hover {
+  @apply bg-none text-white hover:bg-transparent border-none transition-colors duration-300;
+}
