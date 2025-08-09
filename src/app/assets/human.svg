@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Path" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 207.71549 250">
+  <!-- Generator: Adobe Illustrator 29.1.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 142)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #a4ffa2;
+      }
+
+      .st1 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st2 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="134.72802" y1="183.23596" x2="134.72802" y2="245.72062" gradientTransform="translate(0 267.4807) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a4ffa2"/>
+      <stop offset="1" stop-color="#423c98"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="77.08224" y1="62.23022" x2="152.37395" y2="192.63931" gradientTransform="translate(0 267.4807) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a4ffa2"/>
+      <stop offset="1" stop-color="#423c98"/>
+    </linearGradient>
+  </defs>
+  <circle id="Path-03" class="st2" cx="134.72802" cy="53.00241" r="31.24233"/>
+  <path id="Path-02" class="st0" d="M.00002,242.07466c79.94755-55.32861,146.47918-114.94082,188.78023-203.9191,4.64926-9.22149,9.02955-18.82745,13.21516-28.38126,1.46072-3.23852,2.91589-6.50496,4.57481-9.7743,1.64131,14.32495,1.54267,28.91367-.4526,43.30044-9.24904,73.34153-59.90322,138.00444-123.89696,172.71503-25.49781,13.60364-53.22804,24.09008-82.22066,26.05919h.00002Z"/>
+  <path id="Path-01" class="st1" d="M137.96451,107.75915c-6.87374,9.02245-14.61585,18.36903-23.44713,28.02465-20.06155-16.60321-38.34254-35.34021-50.48555-58.77242-9.31676-18.1333-14.79228-39.28439-11.09785-59.58167,18.81067,39.25492,51.86903,64.55645,85.03053,90.32944ZM203.15395,189.69859c-3.03198-19.54697-13.17325-36.32625-26.59679-49.91168-6.27022,9.58231-13.32041,18.76647-21.04777,27.46551,27.46515,24.03591,38.41585,62.64329-1.22178,82.5726,10.03832.92711,21.23913-1.83985,29.7319-8.06587,16.17595-11.33376,22.255-33.14676,19.13444-52.06056Z"/>
+</svg>

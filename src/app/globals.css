@@ -4,10 +4,10 @@
 }
 @plugin "daisyui/theme" {
   name: "wireframe";
-  --color-primary: #6b7451;
-  --color-secondary: #ffffff;
-  --color-accent: #2e3a59;
-  --color-neutral: #f5f6f8;
+  --color-primary: #295e3f;
+  --color-secondary: #fffef2;
+  --color-accent: #fcfcdf;
+  --color-neutral: #fffff3;
 }
 html {
   scroll-behavior: smooth;
