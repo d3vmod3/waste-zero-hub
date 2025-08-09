@@ -1,7 +1,7 @@
 const HowItWorks = () => {
   return (
     <div className="container mx-auto">
-      <h1>How it workssss</h1>
+      <h1>How it works</h1>
     </div>
   );
 };
