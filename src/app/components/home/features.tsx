@@ -1,9 +1,56 @@
+"use client";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import Tree from "@/assets/tree.svg";
 import Human from "@/assets/human.svg";
 import Trashbin from "@/assets/trashbin.svg";
 import Image from "next/image";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Features = () => {
+  useEffect(() => {
+    const icons = document.querySelectorAll<HTMLImageElement>(".feature-icon");
+    const items = document.querySelectorAll<HTMLElement>(".feature-item");
+
+    // Hover animation for icons
+    icons.forEach((icon) => {
+      if (!icon) return;
+
+      icon.addEventListener("mouseenter", () => {
+        gsap.to(icon, { y: -10, duration: 0.3, ease: "power2.out" });
+      });
+
+      icon.addEventListener("mouseleave", () => {
+        gsap.to(icon, { y: 0, duration: 0.3, ease: "power2.out" });
+      });
+    });
+
+    // Fade in on scroll for each grid item
+    items.forEach((item) => {
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%", // when item is 80% down the viewport
+          toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    });
+
+    return () => {
+      icons.forEach((icon) => {
+        if (!icon) return;
+        icon.replaceWith(icon.cloneNode(true));
+      });
+    };
+  }, []);
+
   return (
     <div className="container mx-auto">
       <div className="space-y-8 py-20">
@@ -16,10 +63,10 @@ const Features = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-3 gap-12">
-          <div className="mx-auto text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="mx-auto text-center feature-item">
             <Image
-              className="mx-auto w-24"
+              className="mx-auto w-24 feature-icon"
               src={Tree}
               alt="logo"
               width={100}
@@ -33,9 +80,9 @@ const Features = () => {
               sharing and upcycling.
             </p>
           </div>
-          <div className="mx-auto text-center">
+          <div className="mx-auto text-center feature-item">
             <Image
-              className="mx-auto w-20"
+              className="mx-auto w-20 feature-icon"
               src={Human}
               alt="logo"
               width={100}
@@ -47,9 +94,9 @@ const Features = () => {
               interactive map and Waste Exchange Board.
             </p>
           </div>
-          <div className="mx-auto text-center">
+          <div className="mx-auto text-center feature-item">
             <Image
-              className="mx-auto w-16"
+              className="mx-auto w-16 feature-icon"
               src={Trashbin}
               alt="logo"
               width={100}
