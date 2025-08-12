@@ -55,9 +55,9 @@ const Navigation = () => {
                     <li>
                       <Link href="/learn-and-create">Learn and Create</Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link href="/share-the-impact">How it works</Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </li>

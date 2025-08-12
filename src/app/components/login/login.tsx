@@ -4,10 +4,11 @@ import Image from "next/image";
 import Logo from "@/assets/logo.png";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
-
+  const router = useRouter();
   return (
     <div className="min-h-screen w-full bg-gray-50 flex items-center justify-center">
       <div className="bg-white shadow-lg rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-screen w-full">
@@ -44,7 +45,11 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full py-2 rounded-lg bg-primary text-white hover:bg-green-700 transition"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push("/home");
+              }}
+              className="w-full py-2 rounded-lg bg-primary text-white hover:opacity-70a transition"
             >
               Login
             </button>
