@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import Globe from "@/assets/globe.png";
 import Image from "next/image";
 import gsap from "gsap";
@@ -37,9 +37,12 @@ const Introduction = () => {
             redirected from trash bins to useful purposes through sharing,
             upcycling/recycling, and community help.
           </p>
-          <button className="bg-primary text-white px-8 py-4 uppercase">
+          <Link
+            href="/how-it-works"
+            className="bg-primary text-white px-8 py-4 uppercase"
+          >
             Start Now
-          </button>
+          </Link>
         </div>
         <div className="mx-auto self-center">
           <Image

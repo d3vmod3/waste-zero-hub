@@ -1,4 +1,4 @@
-const GetInvolved = () => {
+const Page = () => {
   return (
     <div className="container mx-auto">
       <h1>Get involved</h1>
@@ -6,4 +6,4 @@ const GetInvolved = () => {
   );
 };
 
-export default GetInvolved;
+export default Page;

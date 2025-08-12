@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  images: {
+    domains: ["images.pexels.com", "img.youtube.com"],
+  },
 };
 
 export default nextConfig;

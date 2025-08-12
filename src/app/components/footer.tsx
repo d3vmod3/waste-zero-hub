@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Logo from "@/assets/logo.png";
 import Instagram from "@/assets/instagram";
 import Linkedin from "@/assets/linkedin";
@@ -6,6 +9,13 @@ import Youtube from "@/assets/youtube";
 import Image from "next/image";
 
 const Footer = () => {
+  const pathname = usePathname();
+
+  // Hide footer for register and login pages
+  if (pathname === "/register" || pathname === "/login") {
+    return null;
+  }
+
   return (
     <footer id="contact" className="bg-accent text-primary py-20 px-10">
       <div className="container mx-auto flex justify-between items-center gap-4">

@@ -1,31 +1,21 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useRef } from "react";
+import { usePathname } from "next/navigation";
+// import gsap from "gsap";
 import Link from "next/link";
 import Logo from "@/assets/logo.png";
 import Image from "next/image";
+import Avatar from "@/assets/avatar.png";
 
 const Navigation = () => {
   const navRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const nav = navRef.current;
-    let lastScrollY = window.scrollY;
-
-    const onScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        gsap.to(nav, { y: -150, duration: 0.3, ease: "power2.out" }); // Hide nav
-      } else {
-        gsap.to(nav, { y: 0, duration: 0.3, ease: "power2.out" }); // Show nav
-      }
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // Hide Nav if on /register or /login
+  if (pathname === "/register" || pathname === "/login") {
+    return null;
+  }
 
   return (
     <div ref={navRef} className="sticky top-0 z-50 bg-accent shadow-sm">
@@ -43,13 +33,46 @@ const Navigation = () => {
                 <Link href="/home">Home</Link>
               </li>
               <li>
-                <Link href="/how-it-works">How it works</Link>
+                <Link href="/dashboard">Dashboard</Link>
               </li>
               <li>
-                <Link href="/get-involved">Get involved</Link>
+                <div className="dropdown dropdown-hover">
+                  <Link href="/how-it-works">How it works</Link>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                  >
+                    <li>
+                      <Link href="/waste-exchange-board">
+                        Waste Exchange Board
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/find-waste-collector">
+                        Find Waste Collector
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/learn-and-create">Learn and Create</Link>
+                    </li>
+                    <li>
+                      <Link href="/share-the-impact">How it works</Link>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
-                <Link href="#">Login/Sign In</Link>
+                <Link href="/login" className="flex items-center">
+                  <div className="w-8 h-8 rounded-full overflow-hidden border-gray-300">
+                    <Image
+                      src={Avatar}
+                      alt="Profile"
+                      width={40}
+                      height={40}
+                      className="object-cover"
+                    />
+                  </div>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,9 +1,17 @@
-const HowItWorks = () => {
+import WasteExhchangeBoard from "@/components/how-it-works/wasteExchangeBoard";
+import FindWasteCollector from "@/components/how-it-works/findWasteCollector";
+import LearnAndCreate from "@/components/how-it-works/learnAndCreate";
+import ShareTheImpact from "@/components/how-it-works/shareTheImpact";
+
+const Page = () => {
   return (
-    <div className="container mx-auto">
-      <h1>How it works</h1>
+    <div>
+      <WasteExhchangeBoard />
+      <FindWasteCollector />
+      <LearnAndCreate />
+      <ShareTheImpact />
     </div>
   );
 };
 
-export default HowItWorks;
+export default Page;

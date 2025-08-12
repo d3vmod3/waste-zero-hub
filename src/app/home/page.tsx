@@ -3,7 +3,7 @@ import About from "@/components/home/about";
 import Features from "@/components/home/features";
 import Articles from "@/components/home/articles";
 
-const Home = () => {
+const Page = () => {
   return (
     <div>
       <div className="bg-accent">
@@ -22,4 +22,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Page;
