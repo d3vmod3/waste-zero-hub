@@ -1,21 +1,28 @@
-"use client"; // Needed in Next.js for GSAP animations on client side
+"use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { usePathname } from "next/navigation";
 
 const About = () => {
   const titleRef = useRef(null);
   const textRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
+    if (pathname === "/home") {
+      gsap.set([titleRef.current, textRef.current], { opacity: 0, y: 50 });
 
-    tl.from(titleRef.current, { y: 50, opacity: 0 }).from(
-      textRef.current,
-      { y: 50, opacity: 0 },
-      "-=0.5"
-    );
-  }, []);
+      const tl = gsap.timeline({
+        defaults: { duration: 1, ease: "power3.out" },
+      });
+      tl.to(titleRef.current, { y: 0, opacity: 1 }).to(
+        textRef.current,
+        { y: 0, opacity: 1 },
+        "-=0.5"
+      );
+    }
+  }, [pathname]);
 
   return (
     <div className="container mx-auto py-20">

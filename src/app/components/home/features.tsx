@@ -12,42 +12,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
   useEffect(() => {
-    const icons = document.querySelectorAll<HTMLImageElement>(".feature-icon");
-    const items = document.querySelectorAll<HTMLElement>(".feature-item");
+    const ctx = gsap.context(() => {
+      const icons =
+        document.querySelectorAll<HTMLImageElement>(".feature-icon");
+      const items = document.querySelectorAll<HTMLElement>(".feature-item");
 
-    // Hover animation for icons
-    icons.forEach((icon) => {
-      if (!icon) return;
-
-      icon.addEventListener("mouseenter", () => {
-        gsap.to(icon, { y: -10, duration: 0.3, ease: "power2.out" });
+      // Hover animation for icons
+      icons.forEach((icon) => {
+        icon.addEventListener("mouseenter", () => {
+          gsap.to(icon, { y: -10, duration: 0.3, ease: "power2.out" });
+        });
+        icon.addEventListener("mouseleave", () => {
+          gsap.to(icon, { y: 0, duration: 0.3, ease: "power2.out" });
+        });
       });
 
-      icon.addEventListener("mouseleave", () => {
-        gsap.to(icon, { y: 0, duration: 0.3, ease: "power2.out" });
-      });
-    });
-
-    // Fade in on scroll for each grid item
-    items.forEach((item) => {
-      gsap.from(item, {
-        scrollTrigger: {
-          trigger: item,
-          start: "top 80%", // when item is 80% down the viewport
-          toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        y: 50,
-        duration: 0.6,
-        ease: "power2.out",
+      // Fade in on scroll for each grid item
+      items.forEach((item) => {
+        gsap.from(item, {
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 0,
+          y: 50,
+          duration: 0.6,
+          ease: "power2.out",
+        });
       });
     });
 
     return () => {
-      icons.forEach((icon) => {
-        if (!icon) return;
-        icon.replaceWith(icon.cloneNode(true));
-      });
+      ctx.revert(); // removes animations & listeners
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // clears all ScrollTriggers
     };
   }, []);
 
