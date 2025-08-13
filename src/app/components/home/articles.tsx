@@ -59,7 +59,7 @@ const Articles = () => {
       >
         <Link
           ref={btnRef}
-          href="#"
+          href="/articles"
           className="bg-white bg-opacity-80 text-4xl px-8 py-6 text-green-800 hover:bg-opacity-100 transition"
         >
           See Related Articles

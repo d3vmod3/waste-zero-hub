@@ -55,11 +55,11 @@ const Navigation = () => {
                     <li>
                       <Link href="/learn-and-create">Learn and Create</Link>
                     </li>
-                    {/* <li>
-                      <Link href="/share-the-impact">How it works</Link>
-                    </li> */}
                   </ul>
                 </div>
+              </li>
+              <li>
+                <Link href="/articles">Related Articles</Link>
               </li>
               <li>
                 <Link href="/login" className="flex items-center">
