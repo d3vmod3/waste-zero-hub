@@ -11,7 +11,18 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    domains: ["images.pexels.com", "img.youtube.com"],
+    domains: [
+      "images.pexels.com",
+      "img.youtube.com",
+      "upload.wikimedia.org",
+      "ecobricks.org",
+      "journal.com.ph",
+      "i.ytimg.com",
+      "media.greenmatters.com",
+      "static1.xdaimages.com",
+      "center3dprint.com",
+      "img.favpng.com",
+    ],
   },
 };
 
