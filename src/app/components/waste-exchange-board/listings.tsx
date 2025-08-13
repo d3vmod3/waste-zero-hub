@@ -95,12 +95,10 @@ const Listings = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
-  // Filtered products
   const filteredProducts = products.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProducts = filteredProducts.slice(
@@ -108,7 +106,6 @@ const Listings = () => {
     startIndex + itemsPerPage
   );
 
-  // Change page
   const handlePrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
@@ -122,7 +119,7 @@ const Listings = () => {
       <h1 className="text-3xl font-bold mb-4">Waste Zero Hub</h1>
 
       {/* Search Bar */}
-      <div className="form-control mb-6">
+      <div className="form-control mb-4">
         <input
           type="text"
           placeholder="Search for an item..."
@@ -130,9 +127,19 @@ const Listings = () => {
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
-            setCurrentPage(1); // reset to first page on search
+            setCurrentPage(1);
           }}
         />
+      </div>
+
+      {/* Add Donation Button */}
+      <div className="mb-6">
+        <Link
+          href="/waste-exchange-board/add-donation"
+          className="btn btn-success text-white hover:opacity-80"
+        >
+          + Add Donation
+        </Link>
       </div>
 
       {/* Product Grid */}

@@ -185,48 +185,48 @@ const ChatBox = ({
   return (
     <div className="fixed bottom-4 right-4 w-80 bg-white h-96 shadow-lg rounded-lg overflow-hidden flex flex-col">
       {/* Header */}
-      <div className="bg-primary text-white p-3 flex justify-between items-center">
-        <span className="font-semibold text-sm">
-          Chat with {collector.name}
-        </span>
-        <button onClick={onClose} className="text-white text-lg leading-none">
-          ✕
+      <div className="bg-primary text-white px-4 py-2 flex justify-between items-center rounded-t-lg">
+        <span className="font-semibold">Chat with {collector.name}</span>
+        <button
+          onClick={onClose}
+          className="text-white hover:text-gray-200 text-lg"
+        >
+          ✖
         </button>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 p-3 overflow-y-auto max-h-60 text-sm">
+      <div
+        className="flex-1 overflow-y-auto p-3 space-y-2"
+        style={{ maxHeight: "300px" }}
+      >
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            className={`mb-2 ${
-              msg.sender === "user" ? "text-right" : "text-left"
+            className={`p-2 rounded-lg text-sm max-w-[80%] ${
+              msg.sender === "user"
+                ? "bg-primary text-white self-end ml-auto"
+                : "bg-gray-200 text-gray-800 self-start"
             }`}
           >
-            <span
-              className={`inline-block px-2 py-1 rounded ${
-                msg.sender === "user" ? "bg-blue-500 text-white" : "bg-gray-200"
-              }`}
-            >
-              {msg.text}
-            </span>
+            {msg.text}
           </div>
         ))}
       </div>
 
       {/* Input */}
-      <div className="flex border-t">
+      <div className="p-2 border-t flex gap-2">
         <input
           type="text"
-          className="flex-1 p-2 text-sm focus:outline-none"
-          placeholder="Type a message..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+          placeholder="Type a message..."
+          className="flex-1 border rounded px-2 py-1 text-sm"
         />
         <button
           onClick={sendMessage}
-          className="bg-primary text-white px-3 text-sm hover:opacity-80"
+          className="bg-primary text-white px-3 py-1 rounded hover:bg-blue-700 text-sm"
         >
           Send
         </button>

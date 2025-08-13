@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import ShareTheImpact from "@/components/waste-exchange-board/shareTheImpact";
+import ChatWidget from "@/components/waste-exchange-board/learn-more/chatWidget"; // <-- import the chat widget component
 
-const itemImages = [
+const itemImages: string[] = [
   "https://images.pexels.com/photos/31101941/pexels-photo-31101941.jpeg",
   "https://images.pexels.com/photos/5719816/pexels-photo-5719816.jpeg",
   "https://images.pexels.com/photos/4568698/pexels-photo-4568698.jpeg",
@@ -13,43 +14,15 @@ const itemImages = [
   "https://images.pexels.com/photos/7767741/pexels-photo-7767741.jpeg",
 ];
 
-const impactStories = [
-  {
-    name: "Maria Santos",
-    description:
-      "Turned the old wooden cabinet into a community bookshelf for the local daycare center. Now kids have easy access to free books!",
-    images: [
-      "https://images.pexels.com/photos/3185487/pexels-photo-3185487.jpeg",
-      "https://images.pexels.com/photos/159539/books-pexels-photo.jpg",
-    ],
-  },
-  {
-    name: "Pedro Cruz",
-    description:
-      "Used the scrap metal parts to repair broken bicycles in our barangay’s bike-sharing program.",
-    images: [
-      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg",
-      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg",
-    ],
-  },
-  {
-    name: "Ana Reyes",
-    description:
-      "Repurposed the glass jars into seedling pots for our urban gardening project.",
-    images: [
-      "https://images.pexels.com/photos/1022921/pexels-photo-1022921.jpeg",
-      "https://images.pexels.com/photos/1002703/pexels-photo-1002703.jpeg",
-    ],
-  },
-];
-
 const ViewListing = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       {/* Item Gallery */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Left: Gallery */}
         <div>
           <div className="relative">
             <Image
@@ -99,8 +72,18 @@ const ViewListing = () => {
           </div>
         </div>
 
+        {/* Right: Details */}
         <div>
-          <h1 className="text-2xl font-bold mb-4">Recycled Plastic Bottles</h1>
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-2xl font-bold">Recycled Plastic Bottles</h1>
+            <button
+              onClick={() => setIsChatOpen(true)}
+              className="bg-primary text-white px-4 py-2 rounded hover:bg-blue-700"
+            >
+              💬 Chat
+            </button>
+          </div>
+
           <div className="space-y-2 text-gray-700">
             <p>
               <span className="font-semibold">Listed by:</span> Juan Dela Cruz
@@ -115,9 +98,8 @@ const ViewListing = () => {
           </div>
 
           {/* Item description */}
-
           <p className="mt-4 text-gray-600 leading-relaxed">
-            <b className="mt-12">Description:</b>
+            <b>Description:</b>
             <br />I have a large collection of empty plastic bottles, mostly
             from soft drinks and bottled water, that have been piling up in my
             garage. Instead of letting them end up in the landfill, I’m hoping
@@ -127,7 +109,11 @@ const ViewListing = () => {
           </p>
         </div>
       </div>
+
       <ShareTheImpact />
+
+      {/* Chat Widget */}
+      <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 };

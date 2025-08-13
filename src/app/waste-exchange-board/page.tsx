@@ -1,6 +1,6 @@
 import Listings from "@/components/waste-exchange-board/listings";
 
-const WasteExchangeBoard = () => {
+const Page = () => {
   return (
     <div>
       <Listings />;
@@ -8,4 +8,4 @@ const WasteExchangeBoard = () => {
   );
 };
 
-export default WasteExchangeBoard;
+export default Page;
